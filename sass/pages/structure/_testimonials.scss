@@ -1,0 +1,199 @@
+/*Start Testimonials*/
+.testimonials{
+  background-color: #1C2B36;
+  margin-top:50px;
+  margin-bottom:50px;
+  height: 600px;
+  position: relative;
+  &:hover .container > .left{
+    display:flex;
+  }
+  &:hover .container > .right{
+    display:flex;
+  }
+  @include media(medium){
+    height:1000px;
+  }
+  @include media(small){
+    height:1000px;
+  }
+  @include media(mobile){
+    height:1350px;
+  }
+  & .container{
+    & .left{
+      left:80px;
+      @extend %arrow-right-left;
+      &.disabled {
+        cursor: no-drop;
+      }
+    }
+    & .right {
+      right: 30px;
+      @extend %arrow-right-left;
+      &.disabled{
+        cursor: no-drop;
+      }
+    }
+    & .head {
+      position: relative;
+      padding:30px 10px ;
+      height:90px;
+      margin-bottom: 30px;
+      &:before{
+        position:absolute;
+        content:'';
+        bottom:0;
+        left:50%;
+        transform: translateX(-50%);
+        width:140px;
+        height:1px;
+        z-index: 2;
+        background-color: #12A9DB;
+      }
+      & span {
+        background-color: #263845;
+        height: 1px;
+        position: absolute;
+        width:98%;
+        bottom:0;
+      }
+      & p {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width:200px;
+        color: #fff;
+        font-size: 27px;
+        font-family: var(--global-font-family);
+        font-weight: 400;
+      }
+    }
+    & .boxs{
+      position: relative;
+      z-index: 1;
+      & .box{
+        position:absolute;
+        left:-10000px;
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap:30px;
+        justify-content: center;
+        align-items: center;
+        &.active{
+          left:0;
+        }
+        .content{
+          display:flex;
+          flex-direction: column;
+          background-color:#263845;
+          gap:50px;
+          padding:30px;
+          .header{
+            display: flex;
+              align-items: flex-start;
+              justify-content: space-between;
+              padding-top:20px;
+              gap:1%;
+            .image {
+              width:70px;
+              &:hover img{
+                  filter: blur(1px);
+                }
+              & img {
+                border-radius: 50%;
+                max-width: 100%;
+                border:5px solid #686D6C;
+                
+              }
+            }
+            .text{
+              & .name{
+                color:white;
+                font-size: 23px;
+              }
+              
+              & .position{
+                color:#12A9DB;
+                padding:10px 10px 10px 0;
+              }
+              
+              & .social{
+                display:flex;
+                gap:10px;
+                & i{
+                  color:#12A9DB;
+                  transition: var(--main-transition);
+                  cursor: pointer;
+                  &:hover{
+                    color:white;
+                  }
+                }
+              }
+            }
+          }
+          & .quotation{
+            color:#999999;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+    & .dotes{
+      position:absolute;
+      bottom:20px;
+      left:50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap:15px;
+      & span{
+        width:15px;
+        height:15px;
+        border-radius: 50%;
+        background-color: #516163;
+        cursor: pointer;
+        &:hover{
+          background-color: #869791;
+        }
+        &.active{
+          background-color: #869791;
+        }
+      }
+    }
+  }
+}
+
+%arrow-right-left{
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+  z-index: 33;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #485b69;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #d3dee6a2;
+  }
+
+  &:hover i {
+    color: white;
+  }
+
+  & i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #485b69;
+    font-size: 20px;
+    transition: var(--main-transition);
+  }
+}
+/*End Testimonials*/

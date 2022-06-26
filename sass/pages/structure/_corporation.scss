@@ -1,0 +1,82 @@
+/*Start Corporation*/
+.corporation{
+  background-color: #E5E9EC;
+  padding:50px 15px 100px;
+  & .boxs{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap:50px;
+    @include media(medium){gap:70px;}
+    @include media(small){gap:70px;}
+    @include media(mobile){gap:70px;}
+    & .box{
+      position:relative;
+      background-color: white;
+      color:#263845;
+      padding:30px;
+      text-align: center;
+      transition: var(--main-transition);
+      & h2{
+        font-size: 22px;
+        color:#344d5f;
+        font-weight: 600;
+      }
+      & h1{
+        color: #344d5f;
+        font-size: 35px;
+        font-weight: 500;
+        margin: 10px;
+      }
+      & > i{
+        font-size: 75px;
+        margin:20px;
+      }
+      & p{
+        color:#B39999;
+      }
+      &:hover{
+        color:white;
+        background-color: #263845;
+        & h1{color:white;}
+        & h2{color:white;}
+      }
+      & .read-more{
+        position:absolute;
+        bottom:-50px;
+        left:0;
+        background-color: #263845;
+        height:50px;
+        width:150px;
+        @include centering;
+        cursor: pointer;
+        & .caption{
+          position:absolute;
+          top:50px;
+          left:0;
+          z-index: 2;
+          background-color:#263845;
+          color:white;
+          padding:5px;
+          border:1px solid #fff;
+        }
+        & p{
+          flex-basis: 60%;
+          color:white;
+          font-size: 16px;
+          padding:5px;
+        }
+        & .arrow{
+          background-color: red;
+          flex-basis: 40%;
+          height:100%;
+          @include centering;
+          & i{
+            color:white;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+/*End Corporation*/

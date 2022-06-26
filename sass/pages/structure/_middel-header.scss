@@ -1,0 +1,44 @@
+/*Start middle-header*/
+.middle-header{
+  background-color: #1C2B36;
+  & .container{
+
+    display:flex;
+    justify-content: space-between;
+    @include media(mobile) {
+        & .box:nth-child(2) {
+          display: none;
+        }
+      }
+    & .box{
+      display:flex;
+      gap:40px;
+      @include media(small){
+        & .flags{display:none;}
+      }
+      @include media(mobile){
+        & .flags{display:none;}
+      }
+      & a{
+        color:var(--color-middle-header);
+        &:hover {
+          color: white;
+          transition: var(--main-transition);
+        }
+      }
+      & i{color:var(--color-middle-header);}
+      & span{color:var(--color-middle-header)}
+      & > div{
+        display:flex;
+        gap:20px;
+      }
+      & .flags img{
+        &:hover{
+          cursor: pointer;
+          transition: var(--main-transition);
+        }
+      }
+    }
+  }
+}
+/*End middle-header*/

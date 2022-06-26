@@ -1,0 +1,50 @@
+/*Start Bottom Spot*/
+.bottomspot{
+    background-image: url('/images/bottomspot-bg-pic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 100px;
+    margin-top: 50px;
+& .overlay {
+    @include overlay(#25333F, 96%);
+  }
+  & .container{
+    @include media(small) {padding: 0 15px;}
+    @include media(mobile) {padding: 0 15px;}
+    z-index: 22;
+    .boxs{
+      display:grid;
+      z-index: 2;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap:30px;
+      color:white;
+      & .box{
+        z-index: 12;
+        @include centering;
+        flex-direction: column;
+        & i{
+          font-size:60px;
+          padding:30px;
+
+        }
+        & .num{
+          font-size: 50px;
+          padding-bottom:30px;
+          font-family: var(--global-font-family);
+          & span{
+            font-size: 52px;
+            font-family: var(--global-font-family);
+          }
+        }
+        & p{
+          font-size: 19px;
+          font-weight: 400;
+          font-family: var(--global-font-family);
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+/*End Bottom Spot*/

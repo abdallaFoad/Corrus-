@@ -1,0 +1,130 @@
+/*Start Last Header*/
+.last-header{
+  position:relative;
+  background-color: white;
+  height: 100px;
+  & .container{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    @include media(small){
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap:none;
+    }
+    @include media(mobile){
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap:none;
+    }
+    & .logo{
+      z-index: 55;
+      @include media(small){
+        flex-basis: 99%;
+        @include centering;
+      }
+      @include media(mobile){
+        flex-basis: 95%;
+        @include centering;
+      }
+    }
+    & .main-nav{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap:20px;
+      
+      @include media(small){
+        display:none;
+      }
+      @include media(mobile){
+        display:none;
+      }
+      & > li{
+        cursor: pointer;
+        
+        &:hover .mega-menu{
+          display:block;
+          z-index: 100;
+          top: 71px;
+          border-top:3px solid #E5141C;
+          @include media(small) {
+            top: 30px;
+          }
+        }
+        & > a.active{color:#E5141C}
+      }
+      & > li > a{
+        color:#000;
+        font-size: 17px;
+        font-weight: 100;
+        padding: 10px;
+        &:hover{
+          background-color: #E5141C;
+          color:white;
+          transition: var(--main-transition);
+        }
+      }
+      & .mega-menu{
+        position:absolute;
+        width:185px;
+        background-color: white;
+        top:71px;
+        box-shadow: 0 0 2px  #ccc;
+        z-index: -1;
+        display:none;
+        transition: top var(--main-transition), display var(--main-transition);
+        & a{
+          color:#E5141C;
+          width:155px;
+          padding:10px;
+          position: relative;
+        }
+        & a li{
+          @include centering;
+          flex-direction: column;
+        }
+        & a li:not(.li){
+          padding:8px;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+    & .bars{
+      margin-right:30px;
+      
+      @include media(small){
+        background-color: #DDDDDD;
+        flex-basis:1%;
+        display: flex;
+        justify-content: flex-end;
+        padding:8px;
+        
+        & i{
+          font-size: 20px;
+          cursor: pointer;
+          color:#999999;
+        }
+      }
+      @include media(mobile){
+        background-color: #DDDDDD;
+          flex-basis: 5%;
+          display: flex;
+          justify-content: flex-end;
+          padding: 8px;
+          & i {
+            font-size: 20px;
+            cursor: pointer;
+            color: #999999;
+          }
+      }
+    }
+  }
+}
+.show {
+  visibility: hidden;
+}
+/*End Last Header*/

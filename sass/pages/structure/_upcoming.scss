@@ -1,0 +1,150 @@
+/*Start Upcoming Projects*/
+.upcoming{
+  & .container{
+    @include media(small){
+      padding: 0 15px;
+    }
+    @include media(mobile){
+      padding: 0 15px;
+    }
+    & .head{
+      @extend %head;
+    }
+  }
+
+  & .boxs{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+    gap: 30px;
+    & .box{
+      & .image{
+        margin-bottom: 0;
+        overflow: hidden;
+        position:relative;
+        &:hover .bor{
+          transform: scale(1.1);
+          z-index: 1;
+          @include centering;
+        }
+        &:hover img{
+          transform: scale(1.1);
+          filter:brightness(50%)
+        }
+        img{
+          max-width:100%;
+          transition: var(--main-transition);
+        }
+        & .bor{
+          position:absolute;
+          @include centering;
+          gap:30px;
+          top:45%;
+          right:28%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          transform: scale(0.1);
+          transition: var(--main-transition);
+          & .zoom {
+            @extend %zoom-view;
+            &:hover{@extend %hover-zoom-view;}
+          }
+          & .view {
+            @extend %zoom-view;
+            &:hover {@extend %hover-zoom-view; }
+          }
+        }
+      }
+      & .text{
+        padding: 50px 20px;
+        position:relative;
+        transition: var(--main-transition);
+        &:hover{
+          background-color: #2D394B;
+          color:white;
+        }
+        &:hover .caption{
+          color:white;
+        }
+        &:hover .client-date{
+          color:white;
+        }
+        &:hover .client-date span{
+          color:white;
+        }
+        &:hover p{
+          color:white;
+        }
+        & .month {
+          position: absolute;
+          top: -45px;
+          left: 20px;
+          width: 50px;
+          height: 70px;
+          background-color: #E5141C;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          font-family: 'Raleway', sans-serif;
+          font-weight: bold;
+          font-size: 18px;
+          @include centering;
+          text-transform: uppercase;
+        }
+        & .caption{
+          font-size: 22px;
+          font-family: var(--global-font-family);
+          font-weight: 600;
+          color:#2D394B;
+        }
+        & .client-date{
+          display:flex;
+          gap:30px;
+          padding:20px 0;
+          color: #999;
+          & span{
+            color:#2D394B;
+            font-weight: bold;
+          }
+        }
+        & p{
+          line-height: 1.5;
+          color:#888;
+          padding-bottom: 50px;
+          word-spacing: 3px;
+        }
+        & button{
+          position: absolute;
+          right:20px;
+          bottom:0;
+          padding:10px;
+          font-family: var(--global-font-family);
+          color:white;
+          background-color: #E5141C;
+          border: none;
+          transition: var(--main-transition);
+          cursor: pointer;
+          margin-bottom: 30px;
+          &:hover{
+            background-color:red
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+%zoom-view{
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  transition: all 0.7s ease-in-out;
+}
+
+%hover-zoom-view{
+  cursor: pointer;
+  background-color: #E5141C;
+  border: #E5141C;
+}
+/*End Upcoming Projects*/

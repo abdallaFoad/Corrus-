@@ -1,0 +1,68 @@
+//make (circle) with your dimensions. 
+@mixin circle($dimensions) {
+  width: $dimensions;
+  height: $dimensions;
+  border-radius: 50%;
+}
+
+//To center any element in his parent.
+@mixin centering {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//To do overlay on the page.
+@mixin overlay($color, $opacity){
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba($color, $opacity);
+}
+
+//To write prefixes instead of you for (Animation).
+@mixin keyF($anim-name){
+  @-webkit-keyframes #{$anim-name} {
+    @content;
+    }
+
+    @keyframes #{$anim-name} {
+     @content;
+    }
+}
+
+//To write prefixes instead of you for (Transform).
+@mixin x-transform($value){
+  -webkit-transform:$value;
+  transform:$value;
+}
+
+//To write prefixes instead of you for (Transition).
+@mixin x-transition($value...){
+  -webkit-transition:$value;
+  transition:$value;
+}
+
+//Media quires.
+@mixin media($point) {
+  @if $point == 'mobile' {
+    @media (max-width: 767px){
+      @content;
+    }
+  } @else if $point == 'small' {
+    @media (min-width: 768px) and (max-width: 991px){
+      @content;
+    }
+  } @else if $point == 'medium' {
+      @media (min-width: 992px) and (max-width: 1199px) {
+        @content;
+      }
+  } @else if $point =='large' {
+    @media (min-width: 1200px)  {
+      @content;
+    }
+  }
+}
+

@@ -1,0 +1,124 @@
+/*Start Recent Projects*/
+.recent-projects{
+  background-color: white;
+  height:200px;
+  & .container{
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+    @include media(small){
+      padding:0 15px;
+    }
+    @include media(mobile){
+      padding:0 15px;
+    }
+    & .arrows{
+      position:absolute;
+      right:0;
+      top:0;
+      z-index: 56;
+      @include media(small) {right:15px;}
+      @include media(mobile) {right:15px;}
+      & i{
+        color:#9999;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      & .left{
+        &.disabled{
+          color:black;
+        }
+      }
+      & .right{
+        &.disabled{
+          color:black;
+        }
+      }
+    }
+    & .head{
+      @extend %head;
+    }
+
+    & .boxs{
+      z-index: 1;
+      & .box{
+        position: absolute;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:20px;
+        left: -10000px;
+        animation:move-right 0.5s linear;
+        &.active{
+          left:0;
+        }
+        & .image{
+          overflow: hidden;
+          position:relative;
+          &::before{
+            content: "\f002";
+            top:-50px;
+            @extend %before-after-images;
+          }
+          &::after{
+            content: "\f0c1";
+            bottom:-50px;
+            @extend %before-after-images;
+          }
+          &:hover:after{
+            bottom:calc(50% - 40px);
+            background-color: rgba(136, 85, 85, 0.801);
+            @extend %hover-before-after;
+          }
+          &:hover:before{
+            top: calc(50% - 40px);
+            background-color: rgba(139, 0, 0, 0.774);
+            @extend %hover-before-after; 
+          }
+          &:hover img{
+            transform: scale(1.2) rotate(-2deg);
+          }
+          & img {
+            transition: var(--main-transition);
+            max-width: 100%;
+            filter: grayscale(20%);
+          }
+        }
+      }
+    }
+  }
+}
+@include keyF(move-right){
+40%,
+  30%,
+  50%,
+  60%,
+  70% {
+    left: 50%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+%before-after-images{
+    font-family: "Font Awesome 5 free";
+    font-weight: 900;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 3;
+    transition: var(--main-transition);
+    width: 20px;
+    height: 20px;
+    @include centering;
+}
+
+%hover-before-after{
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+/*End Recent Projects*/
